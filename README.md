@@ -24,7 +24,7 @@ This is a simple bash script to automate a number of tasks for the open s3 bucke
 - Readable bucket policy
 - Much more regarding S3 bucket enumeration and all the things we can do..
 
-**Note**<br/><br/>
+**Note**<br/>
 <img src="https://user-images.githubusercontent.com/8291014/108618620-7327f380-7417-11eb-8f5a-2b462a820502.png" alt="Frogy" title="Frogy" height="40"/>
 This tool is in the very early phase of the development but trust me I have some great plans for this tool. So stay tuned.
 
