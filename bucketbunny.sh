@@ -31,34 +31,41 @@ echo -e "
                   oMMMMMMMMMMMMMMMM,
                          kMMc
 "
+bucket=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
 
-
-input=$1
-
-bucket=$(aws s3 ls s3://$input)
-
-if echo "$bucket" | grep -q PRE; then
+if echo "$bucket" | grep -q "Object"; then
         echo -e "\e[92mBucket found \e[0m"
         echo -e "\e[92mListing bucket data... \e[0m"
         echo "$bucket"
-fi
-echo "Frogy_was_here" >> frogy.txt
-aws s3 cp frogy.txt s3://$input
-upload=$(aws s3 ls s3://$input)
-if echo "$upload" | grep -q "frogy.txt"; then
-        echo -e "\e[92mFile uploaded to the bucket successfully - Writable bucket \e[0m"
-        echo -e "\e[92mListing bucket data... \e[0m"
-        echo "$upload"
+        echo "Frogy_was_here" >> frogy.txt
+
+        ######################################## Uploading frogy.txt file on the bucket ########################################
+
+        echo -e "\e[92mUploading frogy.txt to the bucket... \e[0m"
+        aws s3 cp frogy.txt s3://$1 &>/dev/null
+        upload=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
+
+                if echo "$upload" | grep -q "frogy.txt"; then
+                        echo -e "\e[92mFile uploaded to the bucket successfully - Writable bucket \e[0m"
+                        echo -e "\e[92mListing bucket data... \e[0m"
+                        echo "$upload"
+
+        ######################################## Uploading frogy.txt file on the bucket ########################################
+
+                        echo -e "\e[92mDeleting frogy.txt to the bucket... \e[0m"
+                        aws s3 rm s3://$1/frogy.txt &>/dev/null
+                        echo -e "\e[92mFile deleted to the bucket successfully - Writable bucket \e[0m"
+                        delete=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
+                        echo -e "\e[92mListing bucket data... \e[0m"
+                        echo "$delete"
+                        rm frogy.txt
         else
-        :
-fi
-rm frogy.txt
-aws s3 rm s3://$input/frogy.txt
-delete=$(aws s3 ls s3://$input)
-if echo "$delete" | grep -q "frogy.txt"; then
-        :
+                :
+                # add if you can't upload anything here.
+        fi
+
         else
-        echo -e "\e[92mFile deleted successfully - Writable bucket \e[0m"
-        echo -e "\e[92mListing bucket data... \e[0m"
-        echo "$delete"
+                if echo "$bucket" | grep -q "NoSuchBucket"; then
+                echo -e "\e[92mNo such bucket exists \e[0m"
+        fi
 fi
