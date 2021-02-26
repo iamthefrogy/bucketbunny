@@ -50,7 +50,7 @@ if echo "$bucket" | grep -q "Object"; then
                         echo -e "\e[92mListing bucket data... \e[0m"
                         echo "$upload"
 
-        ######################################## Uploading frogy.txt file on the bucket ########################################
+        ######################################## Deleting frogy.txt file on the bucket ########################################
 
                         echo -e "\e[92mDeleting frogy.txt to the bucket... \e[0m"
                         aws s3 rm s3://$1/frogy.txt &>/dev/null
