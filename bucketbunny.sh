@@ -33,7 +33,7 @@ echo -e "
 "
 bucket=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
 
-if echo "$bucket" | grep -q "Object"; then
+if echo "$bucket" | grep -q "Total Objects"; then
         echo -e "\e[92mBucket found \e[0m"
         echo -e "\e[92mListing bucket data... \e[0m"
         echo "$bucket"
@@ -54,18 +54,29 @@ if echo "$bucket" | grep -q "Object"; then
 
                         echo -e "\e[92mDeleting frogy.txt to the bucket... \e[0m"
                         aws s3 rm s3://$1/frogy.txt &>/dev/null
-                        echo -e "\e[92mFile deleted to the bucket successfully - Writable bucket \e[0m"
+                        echo -e "\e[92mFile deleted from the bucket successfully - Writable bucket \e[0m"
                         delete=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
                         echo -e "\e[92mListing bucket data... \e[0m"
                         echo "$delete"
                         rm frogy.txt
         else
-                :
-                # add if you can't upload anything here.
+                        if aws s3 cp frogy.txt s3://admin.istox.com 2>&1 | grep -q "AccessDenied"; then
+                        echo -e "\e[92mFile cannot be uploaded to the bucket - Bucket is readable but not writable... \e[0m"
+                        rm frogy.txt
+                        else
+                        echo -e "\e[91mUnknown error...Contact Author @iamthefrogy.  \e[0m"
+                        rm frogy.txt
+                        fi
         fi
 
-        else
+else
                 if echo "$bucket" | grep -q "NoSuchBucket"; then
-                echo -e "\e[92mNo such bucket exists \e[0m"
-        fi
+                        echo -e "\e[92mBucket does not exist. \e[0m"
+                else
+                        if echo "$bucket" | grep -q "AccessDenied"; then
+                                echo -e "\e[92mBucket is not readable. \e[0m"
+                        else
+                        echo "Unknown error"
+                        fi
+                fi
 fi
