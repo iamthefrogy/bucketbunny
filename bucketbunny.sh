@@ -31,8 +31,6 @@ echo -e "
                   oMMMMMMMMMMMMMMMM,
                          kMMc
 "
-bucket=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
-
 # Listing bucket data - Readable bucket
 echo -e "\e[92mChecking if bucket is readable or not... \e[0m"
 if echo "$bucket" | grep -q "Total Objects"; then
@@ -47,10 +45,14 @@ if echo "$bucket" | grep -q "Total Objects"; then
                         if echo "$bucket" | grep -q "AccessDenied"; then
                                 echo -e "\e[92mBucket is not readable. \e[0m"
                         else
-                        echo -e "\e[92mUnknown error...Contact Author @iamthefrogy.\e[0m"
-                        exit 0
+                                if echo "$bucket" | grep -q "Invalid bucket name"; then
+                                echo -e "\e[92mInvalid bucket name.\e[0m"
+                                exit 0
+                        else
+                                exit 0
                         fi
                 fi
+        fi
 fi
 
 # Uploading file to bucket
