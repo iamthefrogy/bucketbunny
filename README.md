@@ -17,18 +17,18 @@ This is a simple bash script to automate a number of tasks for the open s3 bucke
     ```
     
 **TODO**
-- ✅  ~~List bucket files~~
-- ✅  ~~Upload file to bucket and verify~~
-- ✅  ~~Delete file from bucket and verify~~
-- If bucket is not writable, provide custom error message
-- If bucket is not readable, provide custom error message
-- If no bucket found, provide custome error message
+- ✅ ~~List bucket files~~
+- ✅ ~~Upload file to bucket and verify~~
+- ✅ ~~Delete file from bucket and verify~~
+- ✅ ~~If bucket is not writable, provide custom error message~~
+- ✅ ~~If bucket is not readable, provide custom error message~~
+- ✅ ~~If no bucket found, provide custome error message~~
 - Guessable objects
 - Readable bucket policy
 - Much more regarding S3 bucket enumeration and all the things we can do..
 
 **Note**<br/>
-<img src="https://user-images.githubusercontent.com/8291014/108618620-7327f380-7417-11eb-8f5a-2b462a820502.png" alt="Frogy" title="Frogy" height="40"/>
+<img src="https://user-images.githubusercontent.com/8291014/108618620-7327f380-7417-11eb-8f5a-2b462a820502.png" alt="Frogy" title="Frogy" height="40"/><br/>
 This tool is in the very early phase of the development but trust me I have some great plans for this tool. So stay tuned.
 
 **Warning:** This is just a research project. Kindly use it with caution and at your own risk. I won't be responsible for any misuse conduct.
