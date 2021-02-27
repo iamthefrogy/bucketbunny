@@ -60,7 +60,7 @@ if echo "$bucket" | grep -q "Total Objects"; then
                         echo "$delete"
                         rm frogy.txt
         else
-                        if aws s3 cp frogy.txt s3://admin.istox.com 2>&1 | grep -q "AccessDenied"; then
+                        if aws s3 cp frogy.txt s3://$1 2>&1 | grep -q "AccessDenied"; then
                         echo -e "\e[92mFile cannot be uploaded to the bucket - Bucket is readable but not writable... \e[0m"
                         rm frogy.txt
                         else
