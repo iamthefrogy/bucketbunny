@@ -31,6 +31,9 @@ echo -e "
                   oMMMMMMMMMMMMMMMM,
                          kMMc
 "
+
+bucket=$(aws s3 ls s3://$1 --recursive --summarize 2>&1)
+
 # Listing bucket data - Readable bucket
 echo -e "\e[92mChecking if bucket is readable or not... \e[0m"
 if echo "$bucket" | grep -q "Total Objects"; then
@@ -81,3 +84,4 @@ else
                         rm frogy.txt
          fi
 fi
+
