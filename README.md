@@ -23,7 +23,6 @@ This is a simple bash script to automate a number of tasks for the open s3 bucke
 - ✅ ~~If bucket is not writable, provide custom error message~~
 - ✅ ~~If bucket is not readable, provide custom error message~~
 - ✅ ~~If no bucket found, provide custome error message~~
-- Guessable objects
 - Readable bucket policy
 - Much more regarding S3 bucket enumeration and all the things we can do..
 
