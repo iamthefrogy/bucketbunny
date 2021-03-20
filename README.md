@@ -22,12 +22,7 @@ This is a simple bash script to automate a number of tasks for the open s3 bucke
 - ✅ ~~Delete file from bucket and verify~~
 - ✅ ~~If bucket is not writable, provide custom error message~~
 - ✅ ~~If bucket is not readable, provide custom error message~~
-- ✅ ~~If no bucket found, provide custome error message~~
-- Readable bucket policy
-- Much more regarding S3 bucket enumeration and all the things we can do..
+- ✅ ~~If no bucket found, provide custome error message~~<br/>
 
-**Note**<br/>
-<img src="https://user-images.githubusercontent.com/8291014/108618620-7327f380-7417-11eb-8f5a-2b462a820502.png" alt="Frogy" title="Frogy" height="40"/><br/>
-This tool is in the very early phase of the development but trust me I have some great plans for this tool. So stay tuned.
 
-**Warning:** This is just a research project. Kindly use it with caution and at your own risk. I won't be responsible for any misuse conduct.
+Warning/Disclaimer: Read the detailed disclaimer at my blog - https://github.com/iamthefrogy/Disclaimer-Warning/blob/main/README.md <br/>
