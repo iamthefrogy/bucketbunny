@@ -1,4 +1,7 @@
 # Bucketbunny - Automation for open s3 bucket pocs for pentest/bugbounty/red-teamings
+
+![](https://visitor-badge.glitch.me/badge?page_id=iamthefrogy.bucketbunny)<a href="https://twitter.com/iamthefrogy"> 
+
 This is a simple bash script to automate a number of tasks for the open s3 bucket pocs.<br/><br/>
 <img src="https://user-images.githubusercontent.com/8291014/109222405-9e149d80-77b1-11eb-97ea-873560055c4e.png" alt="Frogy" title="Frogy" height="700" />
 
